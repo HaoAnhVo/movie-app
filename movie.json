@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Avengers",
+        "desc": "After the devastating events of Avengers: Cuộc Chiến Vô Cực (2018), the universe is in ruins. With the help of. remaining allies, the Avengers assemble once more inorder to reverse Thanos' actions and restore balance to the universe.",
+        "imdb": 9.3,
+        "date": "2019",
+        "sposter": "./assets/img/img-1.png",
+        "bposter": "./assets/img/img-1.png",
+        "genre": "Action",
+        "type": "series",
+        "url": "",
+        "trailer": "./assets/video/video-1.mp4"
+    },
+    {
+        "name": "Lật mặt 7 - Một Điều Ước",
+        "imdb": 8.2,
+        "date": "2024",
+        "sposter": "./assets/img/img-2.png",
+        "bposter": "./assets/img/img-2.png",
+        "genre": "Romance",
+        "type": "series",
+        "url": "",
+        "trailer": "./assets/video/video-2.mp4"
+    },
+    {
+        "name": "Mai",
+        "imdb": 6.8,
+        "date": "2024",
+        "sposter": "./assets/img/img-3.png",
+        "bposter": "./assets/img/img-3.png",
+        "genre": "Romance",
+        "type": "series",
+        "url": "",
+        "trailer": "./assets/video/video-3.mp4"
+    },
+    {
+        "name": "Deadpool & Wolverine",
+        "imdb": 8.5,
+        "date": "2024",
+        "sposter": "./assets/img/img-4.png",
+        "bposter": "./assets/img/img-4.png",
+        "genre": "Action",
+        "type": "series",
+        "url": "",
+        "trailer": "./assets/video/video-4.mp4"
+    },
+    {
+        "name": "SpiderMan: No Way Home",
+        "imdb": 8.2,
+        "date": "2021",
+        "sposter": "./assets/img/img-5.png",
+        "bposter": "./assets/img/img-5.png",
+        "genre": "Action",
+        "type": "series",
+        "url": "",
+        "trailer": "./assets/video/video-5.mp4"
+    }
+]

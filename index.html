@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cine Snob</title>
+
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./assets/favicon/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+        <link
+            rel="mask-icon"
+            href="./assets/favicon/safari-pinned-tab.svg"
+            color="#5bbad5"
+        />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="./assets/css/main.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="container">
+                <video class="trailer" src="" autoplay loop muted></video>
+                <nav class="navbar">
+                    <a href="/" class="navbar__content">
+                        <img
+                            class="navbar__logo"
+                            src="./assets/img/logo.png"
+                            alt=""
+                        />
+                        <h1 class="navbar__title">Cine Snob</h1>
+                    </a>
+                    <ul class="navbar__list">
+                        <li><a class="navbar__item" href="#!">Home</a></li>
+                        <li>
+                            <a class="navbar__item" href="#!">Series</a>
+                        </li>
+                        <li><a class="navbar__item" href="#!">Movie</a></li>
+                        <li><a class="navbar__item" href="#!">Kids</a></li>
+                    </ul>
+
+                    <form id="search-form" class="navbar__action">
+                        <input
+                            class="navbar__input"
+                            type="text"
+                            id="search-input"
+                            placeholder="Search Movies ..."
+                        />
+                    </form>
+                </nav>
+                <div class="trailer__content">
+                    <h2 class="trailer__title"></h2>
+                    <p class="trailer__desc"></p>
+                    <div class="trailer__details">
+                        <h6>A Netflix Original Film</h6>
+                        <h5
+                            class="trailer__genre"
+                            style="color: yellowgreen"
+                        ></h5>
+                        <h4 class="trailer__date"></h4>
+                        <h3 id="rate" class="rating">
+                            <span class="imdb" style="margin: 0"></span>
+                            <i
+                                class="fa-solid fa-star"
+                                style="color: #ffd43b"
+                            ></i>
+                            <span class="trailer__imdb"></span>
+                        </h3>
+                    </div>
+
+                    <section style="width: 80vw" class="trailer__group">
+                        <div class="trailer__action">
+                            <h3 class="trailer__popular">Popular</h3>
+                            <i class="fa-solid fa-chevron-left"></i>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+
+                        <div class="trailer__playlist"></div>
+                    </section>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <div id="result"></div>
+            </div>
+        </main>
+        <script src="./script.js"></script>
+    </body>
+</html>
