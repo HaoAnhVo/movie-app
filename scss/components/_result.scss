@@ -1,15 +1,31 @@
 @use "../abstracts";
 #result {
+    width: 100%;
     margin-top: 1100px;
     display: flex;
     gap: 15px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    @include abstracts.screen(xl) {
+        margin-top: 900px;
+    }
+    @include abstracts.screen(lg) {
+        margin-top: 800px;
+    }
+    @include abstracts.screen(sm) {
+        margin-top: 1000px;
+    }
 }
 
 .result__item {
-    width: calc(25% - 12px);
+    width: calc(25% - 15px);
+    @include abstracts.screen(md) {
+        width: calc(33% - 15px);
+    }
+    @include abstracts.screen(sm) {
+        width: calc(50% - 15px);
+    }
 }
 
 .card {
@@ -22,6 +38,12 @@
     height: 360px;
     overflow: hidden;
     transition: all 0.5s ease;
+    @include abstracts.screen(md) {
+        height: 280px;
+    }
+    @include abstracts.screen(sm) {
+        height: 240px;
+    }
     &__content {
         width: 100%;
         position: absolute;
@@ -40,6 +62,13 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @include abstracts.screen(lg) {
+            font-size: 1.2rem;
+        }
+        @include abstracts.screen(sm) {
+            flex-direction: column;
+            gap: 14px;
+        }
     }
     &__btn {
         color: #fff;

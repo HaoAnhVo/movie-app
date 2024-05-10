@@ -1,18 +1,36 @@
+@use "../abstracts";
 .trailer {
     z-index: -1;
     width: 100%;
     position: absolute;
     left: 0;
     top: 0;
+    @include abstracts.screen(sm) {
+        top: 100px;
+    }
     &__content {
         position: absolute;
         top: 280px;
-        width: 456px;
+        max-width: 456px;
+        @include abstracts.screen(lg) {
+            top: 200px;
+            max-width: 360px;
+        }
+        @include abstracts.screen(sm) {
+            top: 330px;
+            max-width: 310px;
+        }
     }
     &__title {
         font-size: 4.2rem;
         font-weight: 600;
         flex-wrap: nowrap;
+        @include abstracts.screen(lg) {
+            font-size: 3.8rem;
+        }
+        @include abstracts.screen(md) {
+            font-size: 3rem;
+        }
     }
     &__desc {
         font-size: 1.4rem;
@@ -26,21 +44,30 @@
         gap: 24px;
         font-size: 1.2rem;
         font-weight: 500;
+        @include abstracts.screen(sm) {
+            justify-content: space-between;
+            gap: 0;
+        }
     }
     &__popular {
         font-size: 2rem;
         font-weight: 600;
     }
     &__action {
-        margin-top: 265px;
+        margin-top: 240px;
         display: flex;
         align-items: center;
         gap: 15px;
+        @include abstracts.screen(xl) {
+            margin-top: 80px;
+        }
+        @include abstracts.screen(lg) {
+            margin-top: 50px;
+        }
     }
     &__playlist {
-        margin-top: 20px;
         position: relative;
-        width: 80vw;
+        width: 100vw;
         height: 240px;
         display: flex;
         align-items: center;
@@ -80,7 +107,6 @@
         border-radius: 8px;
         left: 0;
         top: 0;
-        z-index: 99999;
         opacity: 0;
         transition: 1s linear;
         &::after {
@@ -119,6 +145,9 @@
             }
         }
     }
+    &__imdb {
+        margin-top: 3px;
+    }
 }
 
 .navbar {
@@ -127,7 +156,7 @@
     top: 0;
     left: 0;
     background: #000;
-    width: 100vw;
+    width: 100%;
     padding: 40px 0 20px;
     display: flex;
     align-items: center;
@@ -136,6 +165,9 @@
         font-weight: 600;
         font-size: 3rem;
         color: burlywood;
+        @include abstracts.screen(md) {
+            font-size: 2rem;
+        }
     }
     &__content {
         display: flex;
@@ -149,30 +181,106 @@
     &__list {
         display: flex;
         align-items: center;
+        @include abstracts.screen(sm) {
+            margin-left: 0;
+            flex-direction: column;
+            align-items: flex-start;
+            position: fixed;
+            inset: 0 50% 0 0;
+            z-index: 10;
+            padding: 20px 0;
+            overscroll-behavior: contain;
+            overflow-y: auto;
+            border-radius: 0 20px 20px 0;
+            background: #2c2a2a;
+            translate: -100%;
+            transition: translate 0.5s;
+            &.show {
+                translate: 0;
+            }
+            &.show ~ &-overlay {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+        &-overlay {
+            visibility: hidden;
+            opacity: 0;
+            @include abstracts.screen(sm) {
+                position: fixed;
+                inset: 0;
+                z-index: 9;
+                transition: opacity, visibility;
+                transition-duration: 0.5s;
+                background-color: rgba(0, 0, 0, 0.4);
+            }
+        }
     }
     &__item {
+        width: 100%;
+    }
+    &__link {
         padding: 8px 30px;
+        @include abstracts.screen(lg) {
+            padding: 8px 14px;
+        }
+        @include abstracts.screen(md) {
+            font-size: 1.4rem;
+        }
+        @include abstracts.screen(sm) {
+            display: flex;
+            padding: 0 30px;
+            height: 55px;
+            font-size: 1.6rem;
+            line-height: 150%;
+        }
         &:hover {
             font-size: 1.8rem;
             font-weight: 600;
+            @include abstracts.screen(md) {
+                font-size: 1.6rem;
+            }
         }
     }
     &__action {
-        width: 300px;
+        width: 220px;
         display: flex;
         padding: 8px 16px;
         border-radius: 25px;
-        background-color: #bcbaba;
+        background-color: rgb(214, 143, 51);
+        @include abstracts.screen(lg) {
+            width: 180px;
+        }
+        @include abstracts.screen(sm) {
+            width: 140px;
+            padding: 4px 8px;
+        }
     }
     &__input {
         flex: 1;
+        width: 100%;
         height: 100%;
-        color: #000;
+        color: #fff;
         font-weight: 500;
         &::placeholder {
-            color: #000;
+            color: #fff;
             opacity: 0.7;
+            font-size: 1.2rem;
+            @include abstracts.screen(md) {
+                font-size: 1rem;
+            }
         }
+    }
+    &__btn {
+        padding: 4px 8px;
+        @include abstracts.screen(sm) {
+            padding: 0;
+        }
+    }
+    &__close-btn {
+        font-size: 1.8rem;
+        padding: 10px 30px;
+        margin-bottom: 30px;
     }
 }
 
@@ -210,7 +318,6 @@
     font-size: 1.4rem;
     cursor: pointer;
     transition: 0.3s linear;
-    z-index: 999999999;
 }
 
 .fa-chevron-left {

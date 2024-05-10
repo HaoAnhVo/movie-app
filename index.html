@@ -46,7 +46,14 @@
         <header class="header">
             <div class="container">
                 <video class="trailer" src="" autoplay loop muted></video>
+
                 <nav class="navbar">
+                    <button
+                        class="navbar__more d-none d-sm-block js-toggle"
+                        toggle-target="#navbar-list"
+                    >
+                        <i class="fa-solid fa-bars" style="color: #fff"></i>
+                    </button>
                     <a href="/" class="navbar__content">
                         <img
                             class="navbar__logo"
@@ -55,14 +62,33 @@
                         />
                         <h1 class="navbar__title">Cine Snob</h1>
                     </a>
-                    <ul class="navbar__list">
-                        <li><a class="navbar__item" href="#!">Home</a></li>
-                        <li>
-                            <a class="navbar__item" href="#!">Series</a>
+                    <ul id="navbar-list" class="navbar__list hide">
+                        <button
+                            class="navbar__close-btn js-toggle d-none d-sm-block"
+                            toggle-target="#navbar-list"
+                        >
+                            <i
+                                class="fa-solid fa-arrow-left"
+                                style="color: #fff"
+                            ></i>
+                        </button>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="#!">Home</a>
                         </li>
-                        <li><a class="navbar__item" href="#!">Movie</a></li>
-                        <li><a class="navbar__item" href="#!">Kids</a></li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="#!">Series</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="#!">Movie</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="#!">Kids</a>
+                        </li>
                     </ul>
+                    <div
+                        class="navbar__list-overlay js-toggle"
+                        toggle-target="#navbar-list"
+                    ></div>
 
                     <form id="search-form" class="navbar__action">
                         <input
@@ -71,8 +97,12 @@
                             id="search-input"
                             placeholder="Search Movies ..."
                         />
+                        <button class="navbar__btn">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
                     </form>
                 </nav>
+
                 <div class="trailer__content">
                     <h2 class="trailer__title"></h2>
                     <p class="trailer__desc"></p>
@@ -93,7 +123,7 @@
                         </h3>
                     </div>
 
-                    <section style="width: 80vw" class="trailer__group">
+                    <section class="trailer__group">
                         <div class="trailer__action">
                             <h3 class="trailer__popular">Popular</h3>
                             <i class="fa-solid fa-chevron-left"></i>

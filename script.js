@@ -4,7 +4,7 @@ const $$ = document.querySelectorAll.bind(document);
 const apiKey = "99f1d9bc53139e44aefc0272249574dc";
 const imgApi = "https://image.tmdb.org/t/p/w1280";
 const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`;
-const form = $("#search-form");
+const searchBtn = $(".navbar__btn");
 const query = $("#search-input");
 const result = $("#result");
 
@@ -23,7 +23,7 @@ const app = {
     currentIndex: 0,
     movies: [
         {
-            name: "Avengers",
+            name: "Avengers: Endgame",
             desc: "After the devastating events of Avengers: Cuộc Chiến Vô Cực (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.",
             imdb: 9.3,
             date: "2019",
@@ -143,6 +143,17 @@ const app = {
             type: "series",
             trailer: "./assets/video/video-11.mp4",
         },
+        {
+            name: "Kung Fu Panda 4",
+            desc: "After Po is tapped to become the Spiritual Leader of the Valley of Peace, he needs to find and train a new Dragon Warrior, while a wicked sorceress plans to re-summon all the master villains whom Po has vanquished to the spirit realm.",
+            imdb: 6.8,
+            date: "2024",
+            sposter: "./assets/img/img-12.png",
+            bposter: "./assets/img/img-12.png",
+            genre: "Animation",
+            type: "series",
+            trailer: "./assets/video/video-12.mp4",
+        },
     ],
     render: function () {
         const htmls = this.movies.map((movie, index) => {
@@ -220,6 +231,35 @@ const app = {
         trailerDate.textContent = this.currentMovie.date;
         trailerImdb.textContent = this.currentMovie.imdb;
         trailerVideo.src = this.currentMovie.trailer;
+    },
+
+    initJsToggle: function () {
+        $$(".js-toggle").forEach((button) => {
+            const target = button.getAttribute("toggle-target");
+            if (!target) {
+                document.body.innerText = `Cần thêm toggle-target cho: ${button.outerHTML}`;
+            }
+            button.onclick = (e) => {
+                e.preventDefault();
+                if (!$(target)) {
+                    return (document.body.innerText = `Không tìm thấy phần tử "${target}"`);
+                }
+                const isHidden = $(target).classList.contains("hide");
+
+                requestAnimationFrame(() => {
+                    $(target).classList.toggle("hide", !isHidden);
+                    $(target).classList.toggle("show", isHidden);
+                });
+            };
+            document.onclick = function (e) {
+                if (!e.target.closest(target)) {
+                    const isHidden = $(target).classList.contains("hide");
+                    if (!isHidden) {
+                        button.click();
+                    }
+                }
+            };
+        });
     },
 
     start: function () {
@@ -334,7 +374,7 @@ async function handleSearch(e) {
 }
 
 // Event listeners
-form.addEventListener("submit", handleSearch);
+searchBtn.addEventListener("click", handleSearch);
 window.addEventListener("scroll", detectEnd);
 window.addEventListener("resize", detectEnd);
 
@@ -347,3 +387,34 @@ async function init() {
 }
 
 init();
+
+function initJsToggle() {
+    $$(".js-toggle").forEach((button) => {
+        const target = button.getAttribute("toggle-target");
+        if (!target) {
+            document.body.innerText = `Cần thêm toggle-target cho: ${button.outerHTML}`;
+        }
+        button.onclick = (e) => {
+            e.preventDefault();
+            if (!$(target)) {
+                return (document.body.innerText = `Không tìm thấy phần tử "${target}"`);
+            }
+            const isHidden = $(target).classList.contains("hide");
+
+            requestAnimationFrame(() => {
+                $(target).classList.toggle("hide", !isHidden);
+                $(target).classList.toggle("show", isHidden);
+            });
+        };
+        document.onclick = function (e) {
+            if (!e.target.closest(target)) {
+                const isHidden = $(target).classList.contains("hide");
+                if (!isHidden) {
+                    button.click();
+                }
+            }
+        };
+    });
+}
+
+initJsToggle();
